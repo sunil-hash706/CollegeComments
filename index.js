@@ -3,7 +3,7 @@ const cors = require("cors");
 require("./DB/Config");
 const User = require("./DB/Users");
 const College = require("./DB/College");
-const College = require("./DB/ClgReview");
+const Review = require("./DB/ClgReview");
 const app = express();
 
 app.use(express.json());
@@ -33,7 +33,7 @@ app.post("/add-college", async (req, res) => {
   res.send(result);
 });
 
-app.post("Colleges/Review/:id", async (req, res) => {
+app.post("/Colleges/Review", async (req, res) => {
   let review = new Review(req.body);
   let result = await review.save();
   result = result.toObject();
